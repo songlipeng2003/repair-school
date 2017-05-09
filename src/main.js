@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
 import App from './App'
 import router from './router'
 
@@ -9,6 +10,7 @@ Vue.http.options.root = 'http://127.0.0.1'
 Vue.http.headers.common['X-Access-Token'] = '1'
 
 Vue.use(VueResource)
+Vue.use(Vuex)
 
 /* eslint-disable no-new */
 new Vue({
