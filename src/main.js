@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import Vuex from 'vuex'
+import Mint from 'mint-ui'
+import 'mint-ui/lib/style.css'
 import App from './App'
 import router from './router'
 
@@ -11,6 +13,7 @@ Vue.http.headers.common['X-Access-Token'] = '1'
 
 Vue.use(VueResource)
 Vue.use(Vuex)
+Vue.use(Mint)
 
 /* eslint-disable no-new */
 new Vue({
