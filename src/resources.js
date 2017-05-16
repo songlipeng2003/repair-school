@@ -35,3 +35,7 @@ export const Announcement = Vue.resource(
 export const Repair = Vue.resource(
   'repairs{/id}'
 )
+
+export const Device = Vue.resource(
+  'devices{/id}'
+)

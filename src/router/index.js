@@ -6,6 +6,8 @@ import AnnouncementPage from '../pages/AnnouncementPage'
 import AnnouncementViewPage from '../pages/AnnouncementViewPage'
 import RepairPage from '../pages/RepairPage'
 import RepairViewPage from '../pages/RepairViewPage'
+import DevicePage from '../pages/DevicePage'
+import DeviceViewPage from '../pages/DeviceViewPage'
 import MyPage from '../pages/MyPage'
 import LoginPage from '../pages/LoginPage'
 import ChangePasswordPage from '../pages/ChangePasswordPage'
@@ -33,6 +35,14 @@ export default new Router({
     {
       path: '/repair/:id',
       component: RepairViewPage
+    },
+    {
+      path: '/device',
+      component: DevicePage
+    },
+    {
+      path: '/device/:id',
+      component: DeviceViewPage
     },
     {
       path: '/my',
