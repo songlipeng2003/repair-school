@@ -7,18 +7,28 @@ import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import App from './App'
 import router from './router'
-
-Vue.http.options.root = 'http://127.0.0.1'
-Vue.http.headers.common['X-Access-Token'] = '1'
+import store from './store'
 
 Vue.use(VueResource)
 Vue.use(Vuex)
 Vue.use(Mint)
 
+Vue.config.debug = true
+
+Vue.http.interceptors.push((request, next) => {
+  let token = window.localStorage.token
+  if (token) {
+    Vue.http.headers.common['X-Access-Token'] = token
+  }
+
+  next()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
