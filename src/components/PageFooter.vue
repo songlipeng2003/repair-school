@@ -4,6 +4,10 @@
       <i slot="icon" class="iconfont icon-zhufang"></i>
       首页
     </tab-item>
+    <tab-item id="tab-device">
+      <i slot="icon" class="iconfont icon-wodefankui"></i>
+      设备
+    </tab-item>
     <tab-item id="tab-repair">
       <i slot="icon" class="iconfont icon-wodefankui"></i>
       保修
@@ -36,7 +40,9 @@ export default {
       if (this.selected === 'tab-home') {
         this.$router.push('/')
       } else if (this.selected === 'tab-repair') {
-        this.$router.push('/announcement')
+        this.$router.push('/repair')
+      } else if (this.selected === 'tab-device') {
+        this.$router.push('/device')
       } else if (this.selected === 'tab-my') {
         this.$router.push('/my')
       }

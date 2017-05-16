@@ -31,3 +31,7 @@ export const User = Vue.resource(
 export const Announcement = Vue.resource(
   'announcements{/id}'
 )
+
+export const Repair = Vue.resource(
+  'repairs{/id}'
+)
