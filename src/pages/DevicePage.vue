@@ -4,7 +4,7 @@
 
     <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="10" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">
-        <mt-cell :title="device.name" :label="device.brand + device.model" v-for="device in devices" :to="'device/' + device.id" is-link>
+        <mt-cell :title="device.name" :label="device.brand + device.model + ''" v-for="device in devices" :to="'device/' + device.id" is-link>
         </mt-cell>
       </mt-loadmore>
     </div>

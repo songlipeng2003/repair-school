@@ -6,7 +6,15 @@
       </router-link>
     </mt-header>
 
-    <p>{{ device.remark }}</p>
+    <mt-cell title="名称" :value="device.name"></mt-cell>
+    <mt-cell title="密码" :value="device.code"></mt-cell>
+    <mt-cell title="品牌" :value="device.brand"></mt-cell>
+    <mt-cell title="型号" :value="device.model"></mt-cell>
+    <mt-cell title="位置" :value="device.position"></mt-cell>
+    <mt-cell title="数量" :value="device.quantity"></mt-cell>
+    <mt-cell title="单位" :value="device.union"></mt-cell>
+    <mt-cell title="创建时间" :value="device.created_at"></mt-cell>
+    <mt-cell title="备注" :value="device.remark"></mt-cell>
   </div>
 </template>
 
