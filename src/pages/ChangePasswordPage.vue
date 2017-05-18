@@ -1,16 +1,16 @@
 <template>
   <div>
-    <mt-header :title="$t('change_password')">
+    <mt-header title="修改密码">
       <router-link to="/my" slot="left">
         <mt-button icon="back"></mt-button>
       </router-link>
     </mt-header>
 
     <div >
-        <mt-field :label="$t('old_password')" :placeholder="$t('old_password_placeholder')" type="password" v-model="oldPassword"></mt-field>
-        <mt-field :label="$t('new_password')" :placeholder="$t('new_password_placeholder')" type="password" v-model="newPassword"></mt-field>
-        <mt-field :label="$t('confirm_password')" :placeholder="$t('confirm_password_placeholder')" type="password" v-model="confirmPassword"></mt-field>
-        <mt-button type="primary" size="large" @click.native="changePassword">{{$t('change_password')}}</mt-button>
+        <mt-field label="原始密码" placeholder="请输入密码" type="password" v-model="oldPassword"></mt-field>
+        <mt-field label="新密码" placeholder="请输入新密码" type="password" v-model="newPassword"></mt-field>
+        <mt-field label="确认新密码" placeholder="请输入确认密码" type="password" v-model="confirmPassword"></mt-field>
+        <mt-button type="primary" size="large" @click.native="changePassword">修改密码</mt-button>
     </div>
   </div>
 </template>

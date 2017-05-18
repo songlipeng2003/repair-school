@@ -1,14 +1,14 @@
 <template>
   <div v-if="user">
     <mt-header title="我的"></mt-header>
+    <mt-cell title="所属学校" :value="user.school_name"></mt-cell>
+    <mt-cell title="姓名" :value="user.name"></mt-cell>
+    <mt-cell title="手机号" :value="user.phone"></mt-cell>
+    <mt-cell title="Email" :value="user.email"></mt-cell>
 
-    <div class="avatar">
-      <img :src="user.avatar" alt="">
-    </div>
+    <mt-cell title="修改密码" to="/my/change-password" is-link></mt-cell>
 
-    <mt-cell :title="$t('change_password')" to="/my/change-password" is-link></mt-cell>
-
-    <mt-button type="danger" size="large" @click.native="logoutAction">{{$t('logout')}}</mt-button>
+    <mt-button type="danger" size="large" @click.native="logoutAction">注销</mt-button>
 
     <page-footer active="tab-my"></page-footer>
   </div>
