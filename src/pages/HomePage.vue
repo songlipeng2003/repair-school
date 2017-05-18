@@ -1,6 +1,10 @@
 <template>
   <div>
-    <mt-header title="首页"></mt-header>
+    <mt-header title="首页">
+      <router-link to="/announcement" slot="right">
+        <mt-button >公告</mt-button>
+      </router-link>
+    </mt-header>
 
     <page-footer active="tab-home"></page-footer>
   </div>
