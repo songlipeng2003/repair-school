@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import 'assets/styles/iconfont.css'
+
 export default {
   name: 'app',
   components: {

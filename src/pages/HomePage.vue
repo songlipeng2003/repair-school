@@ -2,7 +2,7 @@
   <div>
     <mt-header title="首页">
       <router-link to="/announcement" slot="right">
-        <mt-button >公告</mt-button>
+        <mt-button ><i slot="icon" class="iconfont icon-message"></i></mt-button>
       </router-link>
     </mt-header>
 
