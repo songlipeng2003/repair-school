@@ -21,7 +21,8 @@ Vue.http.interceptors.push((request, next) => {
     Vue.http.headers.common['X-Access-Token'] = token
   }
 
-  next()
+  next((response) => {
+  })
 })
 
 /* eslint-disable no-new */

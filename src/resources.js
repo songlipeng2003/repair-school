@@ -43,3 +43,7 @@ export const Device = Vue.resource(
 export const Home = Vue.resource(
   'homes{/id}'
 )
+
+export const FaultType = Vue.resource(
+  'fault-types{/id}'
+)

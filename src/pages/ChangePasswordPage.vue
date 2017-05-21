@@ -45,14 +45,14 @@ export default {
     ...mapActions([
       'logout'
     ]),
-    changePassword: function (event) {
+    changePassword: (event) => {
       let self = this
 
       User.changePassword({id: this.loginedUserId}, {
         old_password: this.oldPassword,
         new_password: this.newPassword,
         confirm_password: this.confirmPassword
-      }).then(function (response) {
+      }).then((response) => {
         Toast(self.$t('update_success'))
         self.logout()
         self.$router.push('/login')

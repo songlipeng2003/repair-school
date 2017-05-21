@@ -5,9 +5,9 @@
     <h1>登录</h1>
 
     <div class="login-form">
-        <mt-field label="用户名" placeholder="请输入账号" type="email" v-model="username"></mt-field>
-        <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
-        <mt-button type="primary" size="large" @click.native="loginAction">登录</mt-button>
+      <mt-field label="用户名" placeholder="请输入账号" type="email" v-model="username"></mt-field>
+      <mt-field label="密码" placeholder="请输入密码" type="password" v-model="password"></mt-field>
+      <mt-button type="primary" size="large" @click.native="loginAction">登录</mt-button>
     </div>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
         self.login(response.data)
 
         self.$router.push('/')
-      }, (response) => {
+      }).catch((response) => {
         MessageBox.alert(response.body.message)
       })
     }

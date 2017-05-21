@@ -8,7 +8,7 @@
 
     <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="10" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">
-        <mt-cell :title="announcement.title" :label="'发布时间：' + filterDate(announcement.created_at)" v-for="announcement in announcements" :to="'announcement/' + announcement.id" is-link>
+        <mt-cell :title="announcement.title" :label="'发布时间：' + filterDate(announcement.created_at)" v-for="announcement in announcements" :key="announcement.id" :to="'announcement/' + announcement.id" is-link>
         </mt-cell>
       </mt-loadmore>
     </div>

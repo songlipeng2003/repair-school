@@ -4,7 +4,7 @@
 
     <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="10" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">
-        <mt-cell :title="repair.code" :label="'发布时间：' + filterDate(repair.created_at)" v-for="repair in repairs" :to="'repair/' + repair.id" is-link>
+        <mt-cell :title="repair.code" :label="'发布时间：' + filterDate(repair.created_at)" v-for="repair in repairs" :key="repair.id" :to="'repair/' + repair.id" is-link>
         </mt-cell>
       </mt-loadmore>
     </div>
