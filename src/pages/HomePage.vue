@@ -6,6 +6,10 @@
       </router-link>
     </mt-header>
 
+    <mt-cell title="项目数量" :value="data.projectCount"></mt-cell>
+    <mt-cell title="设备数量" :value="data.deviceCount"></mt-cell>
+    <mt-cell title="保修单数量" :value="data.repairCount"></mt-cell>
+
     <page-footer active="tab-home"></page-footer>
   </div>
 </template>
@@ -14,7 +18,7 @@
 import { Header, Cell } from 'mint-ui'
 import PageFooter from '../components/PageFooter'
 
-// import { Activity } from '../resources'
+import { Home } from '../resources'
 import { mapActions } from 'vuex'
 
 export default {
@@ -25,9 +29,13 @@ export default {
   },
   data () {
     return {
+      data: {}
     }
   },
   beforeCreate () {
+    Home.query().then((res) => {
+      this.data = res.data
+    })
   },
   methods: {
     ...mapActions([

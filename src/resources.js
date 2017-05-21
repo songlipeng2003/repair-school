@@ -39,3 +39,7 @@ export const Repair = Vue.resource(
 export const Device = Vue.resource(
   'devices{/id}'
 )
+
+export const Home = Vue.resource(
+  'homes{/id}'
+)
