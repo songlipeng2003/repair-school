@@ -14,6 +14,7 @@ import DeviceViewPage from '../pages/DeviceViewPage'
 import MyPage from '../pages/MyPage'
 import LoginPage from '../pages/LoginPage'
 import ChangePasswordPage from '../pages/ChangePasswordPage'
+import DeviceFormPage from '../pages/DeviceFormPage'
 
 Vue.use(Router)
 
@@ -44,8 +45,16 @@ export default new Router({
       component: DevicePage
     },
     {
+      path: '/device/create',
+      component: DeviceFormPage
+    },
+    {
       path: '/device/:id',
       component: DeviceViewPage
+    },
+    {
+      path: '/device/:id/update',
+      component: DeviceFormPage
     },
     {
       path: '/device/:id/repair',

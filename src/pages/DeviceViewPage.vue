@@ -17,6 +17,7 @@
     <mt-cell title="备注" :value="device.remark"></mt-cell>
 
     <mt-button type="primary" size="large" @click.native="repair">我要保修</mt-button>
+    <mt-button type="primary" size="large" @click.native="update">编辑</mt-button>
   </div>
 </template>
 
@@ -45,7 +46,16 @@ export default {
   methods: {
     repair () {
       this.$router.push(`/device/${this.id}/repair`)
+    },
+    update () {
+      this.$router.push(`/device/${this.id}/update`)
     }
   }
 }
 </script>
+
+<style lang="scss" scope>
+.mint-button {
+  margin-bottom: 10px;
+}
+</style>

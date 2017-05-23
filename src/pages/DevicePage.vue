@@ -1,6 +1,10 @@
 <template>
   <div>
-    <mt-header title="设备"></mt-header>
+    <mt-header title="设备">
+      <router-link to="/device/create" slot="right">
+        <mt-button ><i slot="icon" class="iconfont icon-message"></i></mt-button>
+      </router-link>
+    </mt-header>
 
     <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="10" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">

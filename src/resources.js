@@ -47,3 +47,7 @@ export const Home = Vue.resource(
 export const FaultType = Vue.resource(
   'fault-types{/id}'
 )
+
+export const Project = Vue.resource(
+  'projects{/id}'
+)
