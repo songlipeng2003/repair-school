@@ -6,10 +6,13 @@
       </router-link>
     </mt-header>
 
-    <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="10" infinite-scroll-listen-for-event="refreshData">
+    <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="0" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">
         <mt-cell :title="device.name" :label="device.brand + device.model + ' '" v-for="device in devices" :key="device.id" :to="'device/' + device.id" is-link>
         </mt-cell>
+        <div class="empty" v-if="devices.length==0">
+          暂无数据
+        </div>
       </mt-loadmore>
     </div>
 
@@ -55,7 +58,7 @@ export default {
 
       this.$refs.loadmore.onTopLoaded(id)
     },
-    loadMore (id) {
+    loadMore () {
       this.loading = true
 
       this.loadData()
@@ -89,6 +92,7 @@ export default {
     }
   },
   beforeMount () {
+    this.loadMore()
   }
 }
 </script>

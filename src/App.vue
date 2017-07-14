@@ -19,4 +19,10 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.empty {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
 </style>
