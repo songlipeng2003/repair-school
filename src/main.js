@@ -16,11 +16,6 @@ Vue.use(Mint)
 Vue.config.debug = true
 
 Vue.http.interceptors.push((request, next) => {
-  let token = window.localStorage.token
-  if (token) {
-    Vue.http.headers.common['X-Access-Token'] = token
-  }
-
   next((response) => {
   })
 })
