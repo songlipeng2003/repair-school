@@ -1,6 +1,13 @@
 <template>
   <div>
     <mt-header title="报修"></mt-header>
+    <mt-navbar v-model="status">
+      <mt-tab-item id="0">全部</mt-tab-item>
+      <mt-tab-item id="10">已报修</mt-tab-item>
+      <mt-tab-item id="20">已派单</mt-tab-item>
+      <mt-tab-item id="40">已维修</mt-tab-item>
+      <mt-tab-item id="50">已评价</mt-tab-item>
+    </mt-navbar>
 
     <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="0" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">
@@ -45,12 +52,20 @@ export default {
       page: 1,
       allLoaded: false,
       repairs: [],
-      loading: false
+      loading: false,
+      status: '0'
     }
   },
   computed: {
-    disableLoadMore: function () {
+    disableLoadMore: () => {
       return this.loading || this.allLoaded
+    }
+  },
+  watch: {
+    status: function (newValue) {
+      this.loading = true
+      this.page = 1
+      this.loadData(true)
     }
   },
   methods: {
@@ -68,7 +83,8 @@ export default {
     },
     loadData (clear = false) {
       Indicator.open()
-      Repair.query({page: this.page}).then((response) => {
+      let query = {page: this.page, status: this.status}
+      Repair.query(query).then((response) => {
         if (clear) {
           this.repairs = response.body
         } else {
