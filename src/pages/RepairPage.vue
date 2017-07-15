@@ -1,11 +1,18 @@
 <template>
   <div>
-    <mt-header title="保修"></mt-header>
+    <mt-header title="报修"></mt-header>
 
     <div v-infinite-scroll="loadMore" infinite-scroll-disabled="disableLoadMore" infinite-scroll-distance="0" infinite-scroll-listen-for-event="refreshData">
       <mt-loadmore :top-method="refresh" ref="loadmore">
-        <mt-cell :title="repair.code" :label="'发布时间：' + filterDate(repair.created_at)" v-for="repair in repairs" :key="repair.id" :to="'repair/' + repair.id" is-link>
-        </mt-cell>
+        <div v-for="repair in repairs" :key="repair.id" class="card">
+          <router-link :to="'repair/' + repair.id">
+            编号:{{repair.code}}<br/>
+            设备:{{repair.device.name}}<br/>
+            项目:{{repair.project_name}}<br/>
+            状态:{{repair.status_name}}<br/>
+            保修时间:{{repair.created_at.substring(0, 16)}}<br/>
+          </router-link>
+        </div>
         <div class="empty" v-if="repairs.length==0">
           暂无数据
         </div>

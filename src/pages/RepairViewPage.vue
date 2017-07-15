@@ -6,15 +6,44 @@
       </router-link>
     </mt-header>
 
-    <mt-cell title="名称" :value="repair.name"></mt-cell>
-    <mt-cell title="密码" :value="repair.code"></mt-cell>
-    <mt-cell title="品牌" :value="repair.brand"></mt-cell>
-    <mt-cell title="型号" :value="repair.model"></mt-cell>
-    <mt-cell title="位置" :value="repair.position"></mt-cell>
-    <mt-cell title="数量" :value="repair.quantity"></mt-cell>
-    <mt-cell title="单位" :value="repair.union"></mt-cell>
-    <mt-cell title="创建时间" :value="repair.created_at"></mt-cell>
+    <h2>报修信息</h2>
+    <mt-cell title="编号" :value="repair.code"></mt-cell>
+    <mt-cell title="设备编号" :value="repair.device.code"></mt-cell>
+    <mt-cell title="设备名称" :value="repair.device.name"></mt-cell>
+    <mt-cell title="设备品牌" :value="repair.device.brand"></mt-cell>
+    <mt-cell title="设备型号" :value="repair.device.model"></mt-cell>
+    <mt-cell title="设备位置" :value="repair.device.position"></mt-cell>
+    <mt-cell title="电话" :value="repair.phone"></mt-cell>
+    <mt-cell title="状态" :value="repair.status_name"></mt-cell>
     <mt-cell title="备注" :value="repair.remark"></mt-cell>
+    <mt-cell title="保修人" :value="repair.creator_name"></mt-cell>
+    <mt-cell title="项目" :value="repair.project_name"></mt-cell>
+    <mt-cell title="保修时间" :value="repair.created_at"></mt-cell>
+
+    <div v-if="repair>=20">
+      <h2>派单信息</h2>
+      <mt-cell title="供应商" :value="repair.supplier_name"></mt-cell>
+      <mt-cell title="派单时间" :value="repair.assigned_at"></mt-cell>
+      <mt-cell title="派单人" :value="repair.assign_user_name"></mt-cell>
+      <mt-cell title="派单备注" :value="repair.assign_remark"></mt-cell>
+      <mt-cell title="服务站" :value="repair.service_sation_name"></mt-cell>
+      <mt-cell title="服务站派单时间" :value="repair.service_station_assigned_at"></mt-cell>
+      <mt-cell title="服务站配单备注" :value="repair.service_station_assign_remark"></mt-cell>
+      <mt-cell title="维修者" :value="repair.repairer_name"></mt-cell>
+    </div>
+
+    <div v-if="repair>=40">
+      <h2>完工信息</h2>
+      <mt-cell title="维修时间" :value="repair.repaired_at"></mt-cell>
+      <mt-cell title="完工备注" :value="repair.finish_remark"></mt-cell>
+    </div>
+
+    <div v-if="repair==50">
+      <h2>评价信息</h2>
+      <mt-cell title="评价时间" :value="repair.evaluated_at"></mt-cell>
+      <mt-cell title="评价" :value="repair.evaluate"></mt-cell>
+      <mt-cell title="评价备注" :value="repair.evaluate_remark"></mt-cell>
+    </div>
   </div>
 </template>
 
@@ -42,3 +71,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+h2 {
+  font-size: 12px;
+  font-weight: normal;
+  padding: 3px 10px 0;
+}
+</style>
