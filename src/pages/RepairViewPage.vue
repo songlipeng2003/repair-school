@@ -20,7 +20,7 @@
     <mt-cell title="项目" :value="repair.project_name"></mt-cell>
     <mt-cell title="保修时间" :value="repair.created_at"></mt-cell>
 
-    <div v-if="repair>=20">
+    <div v-if="repair.status>=20">
       <h2>派单信息</h2>
       <mt-cell title="供应商" :value="repair.supplier_name"></mt-cell>
       <mt-cell title="派单时间" :value="repair.assigned_at"></mt-cell>
@@ -32,13 +32,13 @@
       <mt-cell title="维修者" :value="repair.repairer_name"></mt-cell>
     </div>
 
-    <div v-if="repair>=40">
+    <div v-if="repair.status>=40">
       <h2>完工信息</h2>
       <mt-cell title="维修时间" :value="repair.repaired_at"></mt-cell>
       <mt-cell title="完工备注" :value="repair.finish_remark"></mt-cell>
     </div>
 
-    <div v-if="repair==50">
+    <div v-if="repair.status==50">
       <h2>评价信息</h2>
       <mt-cell title="评价时间" :value="repair.evaluated_at"></mt-cell>
       <mt-cell title="评价" :value="repair.evaluate"></mt-cell>
